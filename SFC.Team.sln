@@ -25,21 +25,33 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		.config\dotnet-tools.json = .config\dotnet-tools.json
 		global.json = global.json
 		nuget.config = nuget.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{31DEEC5B-B8F8-4CE0-A66A-425DFCC318BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFC.Team.Application.UnitTests", "tests\SFC.Team.Application.UnitTests\SFC.Team.Application.UnitTests.csproj", "{DBFC818F-5383-4680-894A-333278F2117D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Application.UnitTests", "tests\SFC.Team.Application.UnitTests\SFC.Team.Application.UnitTests.csproj", "{DBFC818F-5383-4680-894A-333278F2117D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFC.Team.Infrastructure.UnitTests", "tests\SFC.Team.Infrastructure.UnitTests\SFC.Team.Infrastructure.UnitTests.csproj", "{3E8DE85E-FA5D-4762-8E93-D6B856555F95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Infrastructure.UnitTests", "tests\SFC.Team.Infrastructure.UnitTests\SFC.Team.Infrastructure.UnitTests.csproj", "{3E8DE85E-FA5D-4762-8E93-D6B856555F95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFC.Team.Infrastructure.Persistence.UnitTests", "tests\SFC.Team.Infrastructure.Persistence.UnitTests\SFC.Team.Infrastructure.Persistence.UnitTests.csproj", "{5AF73C57-6672-4803-8F9C-45C1A6326132}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Infrastructure.Persistence.UnitTests", "tests\SFC.Team.Infrastructure.Persistence.UnitTests\SFC.Team.Infrastructure.Persistence.UnitTests.csproj", "{5AF73C57-6672-4803-8F9C-45C1A6326132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFC.Team.Api.UnitTests", "tests\SFC.Team.Api.UnitTests\SFC.Team.Api.UnitTests.csproj", "{C1874160-4381-4B0C-8586-71B2FEF95A8E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Api.UnitTests", "tests\SFC.Team.Api.UnitTests\SFC.Team.Api.UnitTests.csproj", "{C1874160-4381-4B0C-8586-71B2FEF95A8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SFC.Team.Api.IntegrationTests", "tests\SFC.Team.Api.IntegrationTests\SFC.Team.Api.IntegrationTests.csproj", "{DDE73784-EE32-4FD0-A43E-CD1B53A7A978}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Api.IntegrationTests", "tests\SFC.Team.Api.IntegrationTests\SFC.Team.Api.IntegrationTests.csproj", "{DDE73784-EE32-4FD0-A43E-CD1B53A7A978}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".husky", ".husky", "{55953374-B209-49FA-A89E-281EBF870C89}"
+	ProjectSection(SolutionItems) = preProject
+		.husky\task-runner.json = .husky\task-runner.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hooks", "hooks", "{B75ADAC6-8A30-4188-BB6B-8A25DB611A43}"
+	ProjectSection(SolutionItems) = preProject
+		.husky\pre-commit = .husky\pre-commit
+		.husky\pre-push = .husky\pre-push
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +117,8 @@ Global
 		{5AF73C57-6672-4803-8F9C-45C1A6326132} = {31DEEC5B-B8F8-4CE0-A66A-425DFCC318BD}
 		{C1874160-4381-4B0C-8586-71B2FEF95A8E} = {31DEEC5B-B8F8-4CE0-A66A-425DFCC318BD}
 		{DDE73784-EE32-4FD0-A43E-CD1B53A7A978} = {31DEEC5B-B8F8-4CE0-A66A-425DFCC318BD}
+		{55953374-B209-49FA-A89E-281EBF870C89} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
+		{B75ADAC6-8A30-4188-BB6B-8A25DB611A43} = {55953374-B209-49FA-A89E-281EBF870C89}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {227C3234-815B-4923-B9E6-61FB0BBD9FA9}

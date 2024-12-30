@@ -1,0 +1,18 @@
+{
+  "$schema": "https://alirezanet.github.io/Husky.Net/schema.json",
+  "tasks": [
+    {
+      "name": "dotnet-format-staged-files",
+      "group": "pre-commit-operations",
+      "command": "dotnet",
+      "args": [ "format", "--include", "${staged}" ],
+      "include": [ "**/*.cs" ]
+    },
+    {
+      "name": "dotnet-test",
+      "group": "pre-push-operations",
+      "command": "dotnet",
+      "args": [ "test", " --no-build", "/p:CollectCoverage=true", "/p:CoverletOutput=../coverage/code_coverage", "/p:CoverletOutputFormat=opencover", "/p:Threshold=5", "/p:ThresholdStat=total" ]
+    }
+  ]
+}

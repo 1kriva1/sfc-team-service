@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -9,15 +8,12 @@
     <IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
     <UserSecretsId>2910231c-0573-47c0-a32f-45f1e7f43e17</UserSecretsId>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;1591</NoWarn>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.11" />
@@ -27,11 +23,13 @@
     </PackageReference>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\..\Core\SFC.Team.Application\SFC.Team.Application.csproj" />
     <ProjectReference Include="..\..\Infrastructure\SFC.Team.Infrastructure.Persistence\SFC.Team.Infrastructure.Persistence.csproj" />
     <ProjectReference Include="..\..\Infrastructure\SFC.Team.Infrastructure\SFC.Team.Infrastructure.csproj" />
   </ItemGroup>
-
+  <Target Name="Husky" BeforeTargets="Restore;CollectPackageReferences" Condition="'$(HUSKY)' != 0">
+    <Exec Command="dotnet tool restore" StandardOutputImportance="Low" StandardErrorImportance="High" />
+    <Exec Command="dotnet husky install" StandardOutputImportance="Low" StandardErrorImportance="High" WorkingDirectory="..\..\.." />
+  </Target>
 </Project>

@@ -6,4 +6,7 @@ echo 'Ready to push changes!'
 echo 'Running unit tests...'
 dotnet husky run --name dotnet-test
 
+echo 'Generate unit tests report...'
+dotnet husky run --name reportgenerator
+
 echo 'Completed pre-push changes'

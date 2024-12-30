@@ -15,7 +15,7 @@
       "args": [ "test", "--no-restore", "--no-build", "/p:CollectCoverage=true", "/p:CoverletOutput=../coverage/code_coverage", "/p:CoverletOutputFormat=opencover", "/p:Threshold=0", "/p:ThresholdStat=total" ]
     },
     {
-      "name": "reportgenerator",
+      "name": "reportgenerator-create",
       "group": "pre-push-operations",
       "command": "reportgenerator",
       "args": [ "-reports:tests/coverage/code_coverage.opencover.xml", "-targetdir:tests/coverage/report", "-reporttypes:Html", "-assemblyfilters:+SFC.Team.Domain;+SFC.Team.Application;+SFC.Team.Infrastructure.Persistence;+SFC.Team.Infrastructure;+SFC.Team.Api" ]

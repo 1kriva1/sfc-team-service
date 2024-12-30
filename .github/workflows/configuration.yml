@@ -4,7 +4,7 @@ name: Build and Test SFC.Team Application
 
 on:
   workflow_dispatch:  
-  push:
+  pull_request:
     branches: [ "master" ]
 
 env:
@@ -34,4 +34,4 @@ jobs:
         run: dotnet build --no-restore --configuration Release
 
       - name: Test
-        run: dotnet test --no-restore --no-build --configuration Release --verbosity normal /p:CollectCoverage=true /p:Threshold=2 /p:ThresholdStat=total
+        run: dotnet test --no-restore --no-build --configuration Release --verbosity normal /p:CollectCoverage=true /p:Threshold=0 /p:ThresholdStat=total

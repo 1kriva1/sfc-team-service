@@ -7,10 +7,6 @@ echo 'Format'
 
 dotnet husky run --name dotnet-format-staged-files
 
-echo 'Clean'
-
-dotnet clean
-
 echo 'Build'
 
 dotnet build --no-restore

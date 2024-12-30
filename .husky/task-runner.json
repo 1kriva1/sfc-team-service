@@ -12,7 +12,7 @@
       "name": "dotnet-test",
       "group": "pre-push-operations",
       "command": "dotnet",
-      "args": [ "test", " --no-build", "/p:CollectCoverage=true", "/p:CoverletOutput=../coverage/code_coverage", "/p:CoverletOutputFormat=opencover", "/p:Threshold=5", "/p:ThresholdStat=total" ]
+      "args": [ "test --no-build /p:CollectCoverage=true /p:CoverletOutput=../coverage/code_coverage /p:CoverletOutputFormat=opencover /p:Threshold=5 /p:ThresholdStat=total" ]
     }
   ]
 }

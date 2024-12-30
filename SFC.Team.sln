@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
+		Directory.Build.props = Directory.Build.props
 		.config\dotnet-tools.json = .config\dotnet-tools.json
 		global.json = global.json
 		nuget.config = nuget.config
@@ -51,6 +52,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "hooks", "hooks", "{B75ADAC6
 	ProjectSection(SolutionItems) = preProject
 		.husky\pre-commit = .husky\pre-commit
 		.husky\pre-push = .husky\pre-push
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{F14B9A14-9211-4898-A8EB-3AD322E0CADB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{C3BD34D4-4375-458A-A233-A7F48C1D97BA}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\configuration.yml = .github\workflows\configuration.yml
 	EndProjectSection
 EndProject
 Global
@@ -119,6 +127,8 @@ Global
 		{DDE73784-EE32-4FD0-A43E-CD1B53A7A978} = {31DEEC5B-B8F8-4CE0-A66A-425DFCC318BD}
 		{55953374-B209-49FA-A89E-281EBF870C89} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
 		{B75ADAC6-8A30-4188-BB6B-8A25DB611A43} = {55953374-B209-49FA-A89E-281EBF870C89}
+		{F14B9A14-9211-4898-A8EB-3AD322E0CADB} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
+		{C3BD34D4-4375-458A-A233-A7F48C1D97BA} = {F14B9A14-9211-4898-A8EB-3AD322E0CADB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {227C3234-815B-4923-B9E6-61FB0BBD9FA9}

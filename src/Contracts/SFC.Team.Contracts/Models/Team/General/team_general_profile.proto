@@ -1,0 +1,19 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "google/protobuf/wrappers.proto";
+import "Models/Team/General/team_availability.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Models.Team.General";
+
+message TeamGeneralProfile
+{
+    string name = 1;
+    string city = 2;
+    google.protobuf.Int32Value location = 3;
+    google.protobuf.StringValue description = 4;
+    google.protobuf.StringValue logo = 5;
+    repeated string tags = 6;
+    repeated TeamAvailability availability = 7;
+}

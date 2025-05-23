@@ -1,17 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using SFC.Team.Api.Infrastructure.Extensions;
 
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
-var app = builder.Build();
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
+WebApplication app = builder
+       .ConfigureServices()
+       .ConfigurePipeline();
 
 app.Run();
+
+public partial class Program { }

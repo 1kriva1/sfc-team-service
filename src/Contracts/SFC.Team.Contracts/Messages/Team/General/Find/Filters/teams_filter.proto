@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "Messages/Team/General/Find/Filters/teams_profile_filter.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Messages.Team.General.Find.Filters";
+
+message TeamsFilter
+{
+    TeamsProfileFilter profile = 1;
+}

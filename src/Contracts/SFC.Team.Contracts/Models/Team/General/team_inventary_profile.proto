@@ -1,0 +1,10 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+option csharp_namespace = "SFC.Team.Contracts.Models.Team.General";
+
+message TeamInventaryProfile
+{
+    repeated int32 shirts = 1;
+}

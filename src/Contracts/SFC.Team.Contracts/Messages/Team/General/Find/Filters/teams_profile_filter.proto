@@ -1,0 +1,16 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "Messages/Team/General/Find/Filters/teams_general_profile_filter.proto";
+import "Messages/Team/General/Find/Filters/teams_financial_profile_filter.proto";
+import "Messages/Team/General/Find/Filters/teams_inventary_profile_filter.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Messages.Team.General.Find.Filters";
+
+message TeamsProfileFilter
+{
+    TeamsGeneralProfileFilter general = 1;
+    TeamsFinancialProfileFilter financial = 2;
+    TeamsInventaryProfileFilter inventary = 3;
+}

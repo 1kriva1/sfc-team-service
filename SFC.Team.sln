@@ -61,6 +61,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{
 		.github\workflows\configuration.yml = .github\workflows\configuration.yml
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Contracts", "Contracts", "{E5917561-B757-48B8-AA63-7B12B34DFD76}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Messages", "src\Contracts\SFC.Team.Messages\SFC.Team.Messages.csproj", "{7A141789-E8E4-4595-BA55-867C172A07A9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Contracts", "src\Contracts\SFC.Team.Contracts\SFC.Team.Contracts.csproj", "{37822054-2D93-4C74-9468-7ACF312F307B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{CFA5A9B4-6EFD-4615-8A7F-5C5BBC1CCEE1}"
+	ProjectSection(SolutionItems) = preProject
+		tools\post-action.cmd = tools\post-action.cmd
+		tools\update-contracts.ps1 = tools\update-contracts.ps1
+		tools\update-messages.ps1 = tools\update-messages.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +120,14 @@ Global
 		{DDE73784-EE32-4FD0-A43E-CD1B53A7A978}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DDE73784-EE32-4FD0-A43E-CD1B53A7A978}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DDE73784-EE32-4FD0-A43E-CD1B53A7A978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A141789-E8E4-4595-BA55-867C172A07A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A141789-E8E4-4595-BA55-867C172A07A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A141789-E8E4-4595-BA55-867C172A07A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A141789-E8E4-4595-BA55-867C172A07A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37822054-2D93-4C74-9468-7ACF312F307B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37822054-2D93-4C74-9468-7ACF312F307B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37822054-2D93-4C74-9468-7ACF312F307B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37822054-2D93-4C74-9468-7ACF312F307B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -129,6 +150,10 @@ Global
 		{B75ADAC6-8A30-4188-BB6B-8A25DB611A43} = {55953374-B209-49FA-A89E-281EBF870C89}
 		{F14B9A14-9211-4898-A8EB-3AD322E0CADB} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
 		{C3BD34D4-4375-458A-A233-A7F48C1D97BA} = {F14B9A14-9211-4898-A8EB-3AD322E0CADB}
+		{E5917561-B757-48B8-AA63-7B12B34DFD76} = {077507A8-B04C-4525-AD29-E0CF2A768433}
+		{7A141789-E8E4-4595-BA55-867C172A07A9} = {E5917561-B757-48B8-AA63-7B12B34DFD76}
+		{37822054-2D93-4C74-9468-7ACF312F307B} = {E5917561-B757-48B8-AA63-7B12B34DFD76}
+		{CFA5A9B4-6EFD-4615-8A7F-5C5BBC1CCEE1} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {227C3234-815B-4923-B9E6-61FB0BBD9FA9}

@@ -1,0 +1,14 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "google/protobuf/duration.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Models.Team.General";
+
+message TeamAvailability
+{
+    google.protobuf.Duration from = 1;
+    google.protobuf.Duration to = 2;
+    int32 day = 3;
+}

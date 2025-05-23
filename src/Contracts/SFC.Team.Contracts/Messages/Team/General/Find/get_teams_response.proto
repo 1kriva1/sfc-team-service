@@ -1,0 +1,12 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "Models/Team/General/team.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Messages.Team.General.Find";
+
+message GetTeamsResponse
+{
+    repeated Team items = 1;
+}

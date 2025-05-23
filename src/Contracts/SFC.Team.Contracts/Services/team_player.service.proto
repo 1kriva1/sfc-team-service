@@ -1,0 +1,15 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "Messages/Team/Player/Get/get_team_player_request.proto";
+import "Messages/Team/Player/Get/get_team_player_response.proto";
+import "Messages/Team/Player/Find/get_team_players_request.proto";
+import "Messages/Team/Player/Find/get_team_players_response.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Services";
+
+service TeamPlayerService {
+    rpc GetTeamPlayer(GetTeamPlayerRequest) returns (GetTeamPlayerResponse);
+    rpc GetTeamPlayers(GetTeamPlayersRequest) returns (GetTeamPlayersResponse);
+}

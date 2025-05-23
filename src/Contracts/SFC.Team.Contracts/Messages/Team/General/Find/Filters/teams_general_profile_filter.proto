@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+package sfc_team;
+
+import "google/protobuf/wrappers.proto";
+import "Messages/Team/General/Find/Filters/teams_availability_limit.proto";
+
+option csharp_namespace = "SFC.Team.Contracts.Messages.Team.General.Find.Filters";
+
+message TeamsGeneralProfileFilter
+{
+    google.protobuf.StringValue name = 1;
+    google.protobuf.StringValue city = 2;
+    repeated string tags = 3;
+    TeamsAvailabilityLimit availability = 4;
+    google.protobuf.Int32Value location = 5;
+    google.protobuf.BoolValue has_logo = 6;
+}

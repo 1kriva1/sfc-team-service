@@ -7,4 +7,5 @@ option csharp_namespace = "SFC.Team.Contracts.Models.Team.General";
 message TeamInventaryProfile
 {
     repeated int32 shirts = 1;
+    bool has_maniches = 2;
 }

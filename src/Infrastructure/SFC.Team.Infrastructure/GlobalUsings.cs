@@ -10,3 +10,4 @@ global using MetadataDomainEnum = SFC.Team.Domain.Enums.Metadata.MetadataDomain;
 global using MetadataServiceEnum = SFC.Team.Domain.Enums.Metadata.MetadataService;
 global using MetadataTypeEnum = SFC.Team.Domain.Enums.Metadata.MetadataType;
 global using TeamPlayerStatusEnum = SFC.Team.Domain.Enums.Team.TeamPlayerStatus;
+global using TeamStatusEnum = SFC.Team.Domain.Enums.Team.TeamStatus;

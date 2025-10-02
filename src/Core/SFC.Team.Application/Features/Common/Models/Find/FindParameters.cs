@@ -1,8 +1,8 @@
-﻿using SFC.Team.Application.Features.Common.Models.Filters;
+﻿using SFC.Team.Application.Features.Common.Models.Find.Filters;
 using SFC.Team.Application.Features.Common.Models.Find.Paging;
 using SFC.Team.Application.Features.Common.Models.Find.Sorting;
 
-namespace SFC.Team.Application.Features.Common.Models;
+namespace SFC.Team.Application.Features.Common.Models.Find;
 public class FindParameters<T>
 {
     public Filters<T>? Filters { get; set; }

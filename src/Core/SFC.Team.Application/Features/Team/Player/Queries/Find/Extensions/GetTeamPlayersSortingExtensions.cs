@@ -3,7 +3,7 @@
 using SFC.Team.Application.Common.Dto.Player.Filters;
 using SFC.Team.Application.Features.Common.Dto.Common;
 using SFC.Team.Application.Features.Common.Extensions;
-using SFC.Team.Application.Features.Common.Models.Sorting;
+using SFC.Team.Application.Features.Common.Models.Find.Sorting;
 using SFC.Team.Application.Features.Team.Player.Queries.Find.Dto.Filters;
 using SFC.Team.Domain.Entities.Player;
 using SFC.Team.Domain.Entities.Team.Player;

@@ -72,6 +72,8 @@ public static class RepositoryExtensions
             services.AddScoped<IRequestStatusRepository, RequestStatusCacheRepository>();
 
             // team
+            services.AddScoped<TeamStatusRepository>();
+            services.AddScoped<ITeamStatusRepository, TeamStatusCacheRepository>();
             services.AddScoped<TeamPlayerStatusRepository>();
             services.AddScoped<ITeamPlayerStatusRepository, TeamPlayerStatusCacheRepository>();
         }
@@ -94,6 +96,7 @@ public static class RepositoryExtensions
             services.AddScoped<IRequestStatusRepository, RequestStatusRepository>();
 
             // team
+            services.AddScoped<ITeamStatusRepository, TeamStatusRepository>();
             services.AddScoped<ITeamPlayerStatusRepository, TeamPlayerStatusRepository>();
         }
 

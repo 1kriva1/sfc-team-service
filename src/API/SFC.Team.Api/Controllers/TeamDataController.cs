@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 
 using SFC.Team.Api.Infrastructure.Models.Base;
-using SFC.Team.Api.Infrastructure.Models.Teams.Data.GetAll;
+using SFC.Team.Api.Infrastructure.Models.Team.Data.GetAll;
 using SFC.Team.Application.Features.Team.Data.Queries.GetAll;
 using SFC.Team.Infrastructure.Constants;
 

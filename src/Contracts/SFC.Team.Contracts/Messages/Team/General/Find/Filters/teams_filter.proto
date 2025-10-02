@@ -8,5 +8,6 @@ option csharp_namespace = "SFC.Team.Contracts.Messages.Team.General.Find.Filters
 
 message TeamsFilter
 {
-    TeamsProfileFilter profile = 1;
+    repeated int32 statuses = 1;
+    TeamsProfileFilter profile = 2;
 }

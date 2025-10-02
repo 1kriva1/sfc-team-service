@@ -231,4 +231,13 @@
   <data name="Removed" xml:space="preserve">
     <value>Видалений</value>
   </data>
+  <data name="Temporary" xml:space="preserve">
+    <value>Тимчасовий</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Неактивний</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Закритий</value>
+  </data>
 </root>

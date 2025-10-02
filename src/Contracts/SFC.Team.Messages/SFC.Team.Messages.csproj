@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <PackageId>SFC.Team.Messages</PackageId>
-    <Version>0.0.20</Version>
+    <Version>0.0.21</Version>
     <Authors>Andrii Kryvoruk</Authors>
     <Company>SFC</Company>
     <Product>SFC</Product>

@@ -1,6 +1,4 @@
-﻿using SFC.Team.Application.Features.Common.Base;
-
-namespace SFC.Team.Application.Features.Common.Models.Find.Paging;
+﻿namespace SFC.Team.Application.Features.Common.Models.Find.Paging;
 public class PagedList<T> : List<T>
 {
     public int CurrentPage { get; private set; }

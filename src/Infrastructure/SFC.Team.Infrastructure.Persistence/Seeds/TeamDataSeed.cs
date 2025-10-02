@@ -9,6 +9,9 @@ public static class TeamDataSeed
 {
     public static void SeedTeamData(this ModelBuilder builder, IDateTimeService dateTimeService)
     {
+        builder.SeedDataEnumValues<TeamStatus, TeamStatusEnum>(@enum =>
+            new TeamStatus(@enum).SetCreatedDate(dateTimeService));
+
         builder.SeedDataEnumValues<TeamPlayerStatus, TeamPlayerStatusEnum>(@enum =>
             new TeamPlayerStatus(@enum).SetCreatedDate(dateTimeService));
     }

@@ -3,7 +3,7 @@
 using Google.Protobuf.WellKnownTypes;
 
 using SFC.Team.Api.Infrastructure.Models.Common;
-using SFC.Team.Api.Infrastructure.Models.Teams.Players.Common;
+using SFC.Team.Api.Infrastructure.Models.Team.Player.Common;
 using SFC.Team.Application.Common.Mappings.Base;
 using SFC.Team.Application.Features.Common.Dto.Common;
 using SFC.Team.Application.Features.Common.Dto.Pagination;
@@ -41,9 +41,6 @@ public class MappingProfile : BaseMappingProfile
 
         CreateMap<Duration, TimeSpan>()
             .ConvertUsing(value => value.ToTimeSpan());
-
-        CreateMap<long, TeamPlayerTeamModel>()
-            .ConvertUsing(teamId => new TeamPlayerTeamModel { Id = teamId });
 
         #endregion Simple types
 

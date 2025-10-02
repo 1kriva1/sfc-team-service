@@ -13,16 +13,6 @@ public class TeamPlayerConfiguration : AuditableEntityConfiguration<TeamPlayer, 
     {
         ArgumentNullException.ThrowIfNull(builder);
 
-        // it's for skip exception during update db (sql server only related)
-        builder.HasOne<TeamEntity>()
-               .WithMany()
-               .HasForeignKey(e => e.TeamId)
-               .OnDelete(DeleteBehavior.ClientCascade);
-
-        //builder.HasOne(e => e.Player)
-        //       .WithMany(e => e.Teams)
-        //       .HasForeignKey(e => e.PlayerId);
-
         builder.HasOne<TeamPlayerStatus>()
                .WithMany()
                .HasForeignKey(t => t.StatusId)

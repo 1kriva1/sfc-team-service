@@ -2,7 +2,7 @@
 
 using SFC.Team.Application.Common.Enums;
 
-namespace SFC.Team.Application.Features.Common.Models.Sorting;
+namespace SFC.Team.Application.Features.Common.Models.Find.Sorting;
 public class Sorting<T, TKey>
 {
     public bool Condition { get; set; }

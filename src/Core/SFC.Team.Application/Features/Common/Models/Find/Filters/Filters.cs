@@ -1,9 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq.Expressions;
 
-using SFC.Team.Application.Features.Common.Models.Find.Filters;
-
-namespace SFC.Team.Application.Features.Common.Models.Filters;
+namespace SFC.Team.Application.Features.Common.Models.Find.Filters;
 public class Filters<T>
 {
     private readonly List<Filter<T>> _filterList;

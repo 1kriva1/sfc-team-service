@@ -1,4 +1,5 @@
 ﻿using SFC.Team.Messages.Models.Common;
+using SFC.Team.Messages.Models.Team.Player;
 
 namespace SFC.Team.Messages.Models.Team.General;
 public class Team : Auditable
@@ -7,9 +8,13 @@ public class Team : Auditable
 
     public Guid UserId { get; set; }
 
+    public int StatusId { get; set; }
+
     public required TeamGeneralProfile GeneralProfile { get; set; }
 
     public required TeamFinancialProfile FinancialProfile { get; set; }
+
+    public required TeamInventaryProfile InventaryProfile { get; set; }
 
     public TeamLogo? Logo { get; set; }
 
@@ -18,4 +23,6 @@ public class Team : Auditable
     public IEnumerable<TeamTag>? Tags { get; init; }
 
     public IEnumerable<TeamShirt>? Shirts { get; init; }
+
+    public IEnumerable<TeamPlayer> Players { get; init; } = [];
 }

@@ -35,6 +35,8 @@ public class TeamDbContext(
 
     public IQueryable<TeamFinancialProfile> FinancialProfiles => Set<TeamFinancialProfile>();
 
+    public IQueryable<TeamInventaryProfile> InventaryProfiles => Set<TeamInventaryProfile>();
+
     public IQueryable<TeamAvailability> Availability => Set<TeamAvailability>();
 
     public IQueryable<TeamTag> Tags => Set<TeamTag>();
@@ -46,6 +48,8 @@ public class TeamDbContext(
     public IQueryable<TeamPlayer> TeamPlayers => Set<TeamPlayer>();
 
     #region Data
+
+    public IQueryable<TeamStatus> TeamStatuses => Set<TeamStatus>();
 
     public IQueryable<TeamPlayerStatus> TeamPlayerStatuses => Set<TeamPlayerStatus>();
 

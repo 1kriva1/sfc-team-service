@@ -7,6 +7,11 @@ public static class GetTeamsFiltersExtensions
     public static IEnumerable<Filter<TeamEntity>> BuildSearchFilters(this GetTeamsFilterDto filter)
     {
         return [
+            new()
+            {
+                Condition = filter?.Statuses?.Any() ?? false,
+                Expression = team => filter!.Statuses!.Contains((int)team.StatusId)
+            },
             // general profile
             new()
             {

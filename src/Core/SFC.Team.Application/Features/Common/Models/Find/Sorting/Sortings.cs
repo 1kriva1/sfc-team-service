@@ -1,8 +1,6 @@
 ﻿using System.Linq.Expressions;
 
 using SFC.Team.Application.Common.Enums;
-using SFC.Team.Application.Features.Common.Base;
-using SFC.Team.Application.Features.Common.Models.Sorting;
 
 namespace SFC.Team.Application.Features.Common.Models.Find.Sorting;
 public class Sortings<T>

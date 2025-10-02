@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using SFC.Team.Domain.Entities.Identity;
 using SFC.Team.Domain.Entities.Team;
+using SFC.Team.Domain.Entities.Team.Data;
 using SFC.Team.Domain.Entities.Team.General;
 using SFC.Team.Domain.Entities.Team.Player;
 using SFC.Team.Infrastructure.Persistence.Configurations.Base;
@@ -15,6 +16,11 @@ public class TeamConfiguration : AuditableEntityConfiguration<TeamEntity, long>
     {
         ArgumentNullException.ThrowIfNull(builder);
 
+        builder.HasOne<TeamStatus>()
+               .WithMany()
+               .HasForeignKey(t => t.StatusId)
+               .IsRequired(true);
+
         builder.HasOne(e => e.GeneralProfile)
                .WithOne(e => e.Team)
                .HasForeignKey<TeamGeneralProfile>()
@@ -23,6 +29,11 @@ public class TeamConfiguration : AuditableEntityConfiguration<TeamEntity, long>
         builder.HasOne(e => e.FinancialProfile)
                .WithOne(e => e.Team)
                .HasForeignKey<TeamFinancialProfile>()
+               .IsRequired(true);
+
+        builder.HasOne(e => e.InventaryProfile)
+               .WithOne(e => e.Team)
+               .HasForeignKey<TeamInventaryProfile>()
                .IsRequired(true);
 
         builder.HasMany(e => e.Availability)
@@ -45,6 +56,12 @@ public class TeamConfiguration : AuditableEntityConfiguration<TeamEntity, long>
         builder.HasOne<User>()
                .WithMany()
                .IsRequired(true);
+
+        // it's for skip exception during update db (sql server only related)
+        builder.HasMany(e => e.Players)
+               .WithOne()
+               .HasForeignKey(e => e.TeamId)
+               .OnDelete(DeleteBehavior.ClientCascade);
 
         builder.ToTable("Teams");
 

@@ -17,11 +17,6 @@ public enum RequestId
     ResetInviteData,
     // request
     ResetRequestData,
-    // team player
-    CreateTeamPlayer,
-    UpdateTeamPlayer,
-    GetTeamPlayer,
-    GetTeamPlayers,
     // team player invite
     CreateTeamPlayerInvite,
     UpdateTeamPlayerInvite,
@@ -37,5 +32,13 @@ public enum RequestId
     CreateTeam,
     UpdateTeam,
     GetTeam,
-    GetTeams
+    GetTeamWithPlayers,
+    GetTeams,
+    // team player
+    CreateTeamPlayer,
+    UpdateTeamPlayer,
+    TeamPlayerExist,
+    GetTeamPlayer,
+    GetAllTeamPlayers,
+    GetTeamPlayers
 }

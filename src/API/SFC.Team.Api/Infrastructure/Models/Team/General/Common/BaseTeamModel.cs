@@ -1,0 +1,12 @@
+﻿namespace SFC.Team.Api.Infrastructure.Models.Team.General.Common;
+
+/// <summary>
+/// **Base** team model.
+/// </summary>
+public class BaseTeamModel
+{
+    /// <summary>
+    /// Team's profile model.
+    /// </summary>
+    public TeamProfileModel Profile { get; set; } = null!;
+}

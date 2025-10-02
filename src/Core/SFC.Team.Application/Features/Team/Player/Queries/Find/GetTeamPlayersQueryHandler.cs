@@ -3,12 +3,10 @@
 using MediatR;
 
 using SFC.Team.Application.Features.Common.Dto.Pagination;
-using SFC.Team.Application.Features.Common.Models;
-using SFC.Team.Application.Features.Common.Models.Filters;
+using SFC.Team.Application.Features.Common.Models.Find;
 using SFC.Team.Application.Features.Common.Models.Find.Filters;
 using SFC.Team.Application.Features.Common.Models.Find.Paging;
 using SFC.Team.Application.Features.Common.Models.Find.Sorting;
-using SFC.Team.Application.Features.Common.Models.Sorting;
 using SFC.Team.Application.Features.Team.Player.Common.Dto;
 using SFC.Team.Application.Features.Team.Player.Queries.Find.Extensions;
 using SFC.Team.Application.Interfaces.Common;

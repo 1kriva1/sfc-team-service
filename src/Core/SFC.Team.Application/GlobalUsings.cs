@@ -1,6 +1,6 @@
-﻿// metadata
-// base
+﻿// base
 global using ParentRequest = SFC.Team.Application.Features.Common.Base.Request;
+// metadata
 global using MetadataEntity = SFC.Team.Domain.Entities.Metadata.Metadata;
 // player
 global using PlayerEntity = SFC.Team.Domain.Entities.Player.Player;
@@ -23,3 +23,4 @@ global using MetadataTypeEnum = SFC.Team.Domain.Enums.Metadata.MetadataType;
 // request
 global using RequestStatusEnum = SFC.Team.Domain.Enums.Request.RequestStatus;
 global using TeamPlayerStatusEnum = SFC.Team.Domain.Enums.Team.TeamPlayerStatus;
+global using TeamStatusEnum = SFC.Team.Domain.Enums.Team.TeamStatus;

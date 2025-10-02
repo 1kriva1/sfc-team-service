@@ -231,4 +231,13 @@
   <data name="Removed" xml:space="preserve">
     <value>Removed</value>
   </data>
+  <data name="Temporary" xml:space="preserve">
+    <value>Temporary</value>
+  </data>
+  <data name="Inactive" xml:space="preserve">
+    <value>Inactive</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
 </root>

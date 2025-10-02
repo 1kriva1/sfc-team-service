@@ -13,112 +13,123 @@ public static class GetTeamPlayersFiltersExtensions
     public static IEnumerable<Filter<TeamPlayer>> BuildSearchFilters(this GetTeamPlayersFilterDto filter, DateTime now)
     {
         return [
-            // invite
+            // permanent
+            new()
+            {
+                Condition = true,
+                Expression = teamPlayer => teamPlayer.TeamId == filter!.TeamId
+            },
+            // team player
             new()
             {
                 Condition = filter?.TeamPlayer?.Statuses?.Any() ?? false,
-                Expression = invite => filter!.TeamPlayer!.Statuses!.Contains((int)invite.StatusId)
+                Expression = teamPlayer => filter!.TeamPlayer!.Statuses!.Contains((int)teamPlayer.StatusId)
             },
             // player
             new()
             {
+                Condition = filter?.Player?.ExcludeIds?.Any() ?? false,
+                Expression = teamPlayer => !filter!.Player!.ExcludeIds.Contains(teamPlayer.Player.Id)
+            },
+            new()
+            {
                 Condition = !string.IsNullOrEmpty(filter?.Player?.Profile?.General?.Name),
-                Expression = player => player.Player.GeneralProfile.FirstName.Contains(filter!.Player!.Profile.General!.Name!)
-                    || player.Player.GeneralProfile.LastName.Contains(filter.Player.Profile.General.Name!)
+                Expression = teamPlayer => teamPlayer.Player.GeneralProfile.FirstName.Contains(filter!.Player!.Profile.General!.Name!)
+                    || teamPlayer.Player.GeneralProfile.LastName.Contains(filter.Player.Profile.General.Name!)
             },
             new()
             {
                 Condition = !string.IsNullOrEmpty(filter?.Player?.Profile?.General?.City),
-                Expression = player => player.Player.GeneralProfile.City.Contains(filter!.Player!.Profile.General!.City!)
+                Expression = teamPlayer => teamPlayer.Player.GeneralProfile.City.Contains(filter!.Player!.Profile.General!.City!)
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.General?.Tags?.Any() ?? false,
-                Expression = player => player.Player.Tags.Any(tag => filter!.Player!.Profile.General!.Tags.Contains(tag.Value))
+                Expression = teamPlayer => teamPlayer.Player.Tags.Any(tag => filter!.Player!.Profile.General!.Tags.Contains(tag.Value))
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.General?.Years.BuildLimitFromCondition(ValidationConstants.RangeLimit) ?? false,
-                Expression = player => !player.Player.GeneralProfile.Birthday.HasValue || player.Player.GeneralProfile.Birthday <= now.AddYears(-filter!.Player!.Profile.General!.Years!.From!.Value)
+                Expression = teamPlayer => !teamPlayer.Player.GeneralProfile.Birthday.HasValue || teamPlayer.Player.GeneralProfile.Birthday <= now.AddYears(-filter!.Player!.Profile.General!.Years!.From!.Value)
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.General?.Years.BuildLimitToCondition(ValidationConstants.RangeLimit) ?? false,
-                Expression = player => !player.Player.GeneralProfile.Birthday.HasValue || player.Player.GeneralProfile.Birthday >= now.AddYears(-filter!.Player!.Profile.General!.Years!.To!.Value)
+                Expression = teamPlayer => !teamPlayer.Player.GeneralProfile.Birthday.HasValue || teamPlayer.Player.GeneralProfile.Birthday >= now.AddYears(-filter!.Player!.Profile.General!.Years!.To!.Value)
             },
             new()
             {
                 Condition = (filter?.Player?.Profile?.General?.Availability?.From.HasValue ?? false)
                     && (filter.Player.Profile.General?.Availability!.To == null || filter.Player.Profile.General.Availability.From <= filter.Player.Profile.General.Availability.To),
-                Expression = player => !player.Player.Availability.From.HasValue || player.Player.Availability.From <= filter!.Player!.Profile.General!.Availability.From
+                Expression = teamPlayer => !teamPlayer.Player.Availability.From.HasValue || teamPlayer.Player.Availability.From <= filter!.Player!.Profile.General!.Availability.From
             },
             new()
             {
                 Condition = (filter?.Player?.Profile?.General?.Availability?.To.HasValue ?? false)
                     && (filter.Player.Profile.General.Availability.From == null || filter.Player.Profile.General.Availability.To >= filter.Player.Profile.General.Availability.From),
-                Expression = player => !player.Player.Availability.To.HasValue || player.Player.Availability.To >= filter!.Player!.Profile.General!.Availability.To
+                Expression = teamPlayer => !teamPlayer.Player.Availability.To.HasValue || teamPlayer.Player.Availability.To >= filter!.Player!.Profile.General!.Availability.To
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.General?.Availability?.Days?.Any() ?? false,
-                Expression = player => player.Player.Availability.Days.Count == 0 || player.Player.Availability.Days.Any(day => filter!.Player!.Profile.General!.Availability.Days.Contains(day.Day))
+                Expression = teamPlayer => teamPlayer.Player.Availability.Days.Count == 0 || teamPlayer.Player.Availability.Days.Any(day => filter!.Player!.Profile.General!.Availability.Days.Contains(day.Day))
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.General?.FreePlay.HasValue ?? false,
-                Expression = player => player.Player.GeneralProfile.FreePlay == filter!.Player!.Profile.General!.FreePlay
+                Expression = teamPlayer => teamPlayer.Player.GeneralProfile.FreePlay == filter!.Player!.Profile.General!.FreePlay
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.General?.HasPhoto.HasValue ?? false,
-                Expression = player => filter!.Player!.Profile.General!.HasPhoto!.Value && player.Player.Photo != null && player.Player.Photo.Size > 0
-                    || !filter.Player.Profile.General!.HasPhoto!.Value && (player.Player.Photo == null || player.Player.Photo.Size <= 0)
+                Expression = teamPlayer => filter!.Player!.Profile.General!.HasPhoto!.Value && teamPlayer.Player.Photo != null && teamPlayer.Player.Photo.Size > 0
+                    || !filter.Player.Profile.General!.HasPhoto!.Value && (teamPlayer.Player.Photo == null || teamPlayer.Player.Photo.Size <= 0)
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.Height.BuildLimitFromCondition(ValidationConstants.PlayerSizeRange) ?? false,
-                Expression = player => !player.Player.FootballProfile.Height.HasValue || player.Player.FootballProfile.Height >= filter!.Player!.Profile.Football!.Height.From
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.Height.HasValue || teamPlayer.Player.FootballProfile.Height >= filter!.Player!.Profile.Football!.Height.From
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.Height.BuildLimitToCondition(ValidationConstants.PlayerSizeRange) ?? false,
-                Expression = player => !player.Player.FootballProfile.Height.HasValue || player.Player.FootballProfile.Height <= filter!.Player!.Profile.Football!.Height.To
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.Height.HasValue || teamPlayer.Player.FootballProfile.Height <= filter!.Player!.Profile.Football!.Height.To
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.Weight.BuildLimitFromCondition(ValidationConstants.PlayerSizeRange) ?? false,
-                Expression = player => !player.Player.FootballProfile.Weight.HasValue || player.Player.FootballProfile.Weight >= filter!.Player!.Profile.Football!.Weight.From
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.Weight.HasValue || teamPlayer.Player.FootballProfile.Weight >= filter!.Player!.Profile.Football!.Weight.From
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.Weight.BuildLimitToCondition(ValidationConstants.PlayerSizeRange) ?? false,
-                Expression = player => !player.Player.FootballProfile.Weight.HasValue || player.Player.FootballProfile.Weight <= filter!.Player!.Profile.Football!.Weight.To
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.Weight.HasValue || teamPlayer.Player.FootballProfile.Weight <= filter!.Player!.Profile.Football!.Weight.To
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.Positions?.Any() ?? false,
-                Expression = player => !player.Player.FootballProfile.PositionId.HasValue || filter!.Player!.Profile.Football!.Positions.Contains((int)player.Player.FootballProfile.PositionId.Value)
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.PositionId.HasValue || filter!.Player!.Profile.Football!.Positions.Contains((int)teamPlayer.Player.FootballProfile.PositionId.Value)
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.WorkingFoot.HasValue ?? false,
-                Expression = player => !player.Player.FootballProfile.WorkingFootId.HasValue || (int?)player.Player.FootballProfile.WorkingFootId == filter!.Player!.Profile.Football!.WorkingFoot
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.WorkingFootId.HasValue || (int?)teamPlayer.Player.FootballProfile.WorkingFootId == filter!.Player!.Profile.Football!.WorkingFoot
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.GameStyles?.Any() ?? false,
-                Expression = player => !player.Player.FootballProfile.GameStyleId.HasValue || filter!.Player!.Profile.Football!.GameStyles.Contains((int)player.Player.FootballProfile.GameStyleId.Value)
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.GameStyleId.HasValue || filter!.Player!.Profile.Football!.GameStyles.Contains((int)teamPlayer.Player.FootballProfile.GameStyleId.Value)
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.Skill.HasValue ?? false,
-                Expression = player => !player.Player.FootballProfile.Skill.HasValue || player.Player.FootballProfile.Skill >= filter!.Player!.Profile.Football!.Skill
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.Skill.HasValue || teamPlayer.Player.FootballProfile.Skill >= filter!.Player!.Profile.Football!.Skill
             },
             new()
             {
                 Condition = filter?.Player?.Profile?.Football?.PhysicalCondition.HasValue ?? false,
-                Expression = player => !player.Player.FootballProfile.PhysicalCondition.HasValue
-                    || player.Player.FootballProfile.PhysicalCondition >= filter!.Player!.Profile.Football!.PhysicalCondition
+                Expression = teamPlayer => !teamPlayer.Player.FootballProfile.PhysicalCondition.HasValue
+                    || teamPlayer.Player.FootballProfile.PhysicalCondition >= filter!.Player!.Profile.Football!.PhysicalCondition
             },
             new()
             {
@@ -174,14 +185,14 @@ public static class GetTeamPlayersFiltersExtensions
     {
         if (from.HasValue)
         {
-            return player => (int)Math.Ceiling((double)player.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Sum(m => m.Value)
-                / (player.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Count() * PlayerConstants.StatMaxValue)
+            return teamPlayer => (int)Math.Ceiling((double)teamPlayer.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Sum(m => m.Value)
+                / (teamPlayer.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Count() * PlayerConstants.StatMaxValue)
                 * ValidationConstants.PercentageMaxValue) >= from;
         }
         else if (to.HasValue)
         {
-            return player => (int)Math.Ceiling((double)player.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Sum(m => m.Value)
-                / (player.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Count() * PlayerConstants.StatMaxValue)
+            return teamPlayer => (int)Math.Ceiling((double)teamPlayer.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Sum(m => m.Value)
+                / (teamPlayer.Player.Stats.Where(s => !skill.HasValue || (int?)s.Type.SkillId == skill).Count() * PlayerConstants.StatMaxValue)
                 * ValidationConstants.PercentageMaxValue) <= to;
         }
 
@@ -191,10 +202,10 @@ public static class GetTeamPlayersFiltersExtensions
     private static Expression<Func<TeamPlayer, bool>> FilterByRaiting(int? raiting)
     {
         return raiting.HasValue
-            ? player => PlayerConstants.StarsMaxValue * (int)Math.Ceiling((double)player.Player.Stats.Sum(m => m.Value)
-                / (player.Player.Stats.Count() * PlayerConstants.StatMaxValue) * ValidationConstants.PercentageMaxValue)
+            ? teamPlayer => PlayerConstants.StarsMaxValue * (int)Math.Ceiling((double)teamPlayer.Player.Stats.Sum(m => m.Value)
+                / (teamPlayer.Player.Stats.Count() * PlayerConstants.StatMaxValue) * ValidationConstants.PercentageMaxValue)
                 / ValidationConstants.PercentageMaxValue >= raiting
-            : player => true;
+            : teamPlayer => true;
     }
 
     #endregion Private

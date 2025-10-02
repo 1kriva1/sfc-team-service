@@ -3,14 +3,18 @@ using SFC.Team.Application.Interfaces.Team.Data;
 using SFC.Team.Application.Interfaces.Team.Data.Models;
 
 namespace SFC.Team.Infrastructure.Services.Team.Data;
-public class TeamDataService(ITeamPlayerStatusRepository teamPlayerStatusesRepository) : ITeamDataService
+public class TeamDataService(
+    ITeamPlayerStatusRepository teamPlayerStatusesRepository,
+    ITeamStatusRepository teamStatusesRepository) : ITeamDataService
 {
     private readonly ITeamPlayerStatusRepository _teamPlayerStatusesRepository = teamPlayerStatusesRepository;
+    private readonly ITeamStatusRepository _teamStatusesRepository = teamStatusesRepository;
 
     public async Task<GetAllTeamDataModel> GetAllTeamDataAsync()
     {
         return new()
         {
+            TeamStatuses = await _teamStatusesRepository.ListAllAsync().ConfigureAwait(false),
             TeamPlayerStatuses = await _teamPlayerStatusesRepository.ListAllAsync().ConfigureAwait(false)
         };
     }

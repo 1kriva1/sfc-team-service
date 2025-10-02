@@ -8,5 +8,6 @@ option csharp_namespace = "SFC.Team.Contracts.Messages.Team.Data.GetAll";
 
 message GetAllTeamDataResponse
 {   
-    repeated DataValue team_player_statuses = 1;    
+    repeated DataValue team_statuses = 1;
+    repeated DataValue team_player_statuses = 2;    
 }

@@ -13,6 +13,8 @@ public interface ITeamDbContext : IDbContext
 
     IQueryable<TeamFinancialProfile> FinancialProfiles { get; }
 
+    IQueryable<TeamInventaryProfile> InventaryProfiles { get; }
+
     IQueryable<TeamAvailability> Availability { get; }
 
     IQueryable<TeamTag> Tags { get; }
@@ -30,6 +32,8 @@ public interface ITeamDbContext : IDbContext
     #endregion Player
 
     #region Data
+
+    IQueryable<TeamStatus> TeamStatuses { get; }
 
     IQueryable<TeamPlayerStatus> TeamPlayerStatuses { get; }
 

@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 
 using SFC.Team.Application.Features.Common.Dto.Common;
-using SFC.Team.Application.Features.Common.Models.Sorting;
+using SFC.Team.Application.Features.Common.Models.Find.Sorting;
 
 namespace SFC.Team.Application.Features.Common.Extensions;
 public static class SortingExtensions

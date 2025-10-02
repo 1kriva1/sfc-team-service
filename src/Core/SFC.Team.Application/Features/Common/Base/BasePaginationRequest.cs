@@ -9,4 +9,6 @@ public abstract class BasePaginationRequest<TResponse, TFilter> : Request<TRespo
     public IEnumerable<SortingDto> Sorting { get; set; } = [];
 
     public TFilter Filter { get; set; } = default!;
+
+    public IEnumerable<long> ExcludeIds { get; set; } = [];
 }

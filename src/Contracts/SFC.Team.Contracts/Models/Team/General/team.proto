@@ -3,6 +3,7 @@
 package sfc_team;
 
 import "Models/Team/General/team_profile.proto";
+import "Models/Team/Player/team_player.proto";
 
 option csharp_namespace = "SFC.Team.Contracts.Models.Team.General";
 
@@ -10,5 +11,7 @@ message Team
 {
     int64 id = 1;
     string user_id = 2;
-    TeamProfile profile = 3;
+    int32 status_id = 3;
+    TeamProfile profile = 4;
+    repeated TeamPlayer players = 5;
 }

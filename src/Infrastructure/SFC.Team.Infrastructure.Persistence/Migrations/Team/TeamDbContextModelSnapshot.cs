@@ -732,32 +732,78 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                         new
                         {
                             Id = 0,
-                            CreatedDate = new DateTime(2025, 5, 21, 6, 23, 17, 824, DateTimeKind.Utc).AddTicks(5630),
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8309),
                             Title = "Active"
                         },
                         new
                         {
                             Id = 1,
-                            CreatedDate = new DateTime(2025, 5, 21, 6, 23, 17, 824, DateTimeKind.Utc).AddTicks(5644),
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8320),
                             Title = "Injured"
                         },
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2025, 5, 21, 6, 23, 17, 824, DateTimeKind.Utc).AddTicks(5653),
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8326),
                             Title = "Retired"
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2025, 5, 21, 6, 23, 17, 824, DateTimeKind.Utc).AddTicks(5659),
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8331),
                             Title = "Unavailable"
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2025, 5, 21, 6, 23, 17, 824, DateTimeKind.Utc).AddTicks(5664),
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8335),
                             Title = "Removed"
+                        });
+                });
+
+            modelBuilder.Entity("SFC.Team.Domain.Entities.Team.Data.TeamStatus", b =>
+                {
+                    b.Property<int>("Id")
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2")
+                        .HasColumnOrder(1);
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(150)
+                        .HasColumnType("nvarchar(150)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Statuses", "Team");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 0,
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8189),
+                            Title = "Temporary"
+                        },
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8203),
+                            Title = "Active"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8210),
+                            Title = "Inactive"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedDate = new DateTime(2025, 5, 27, 8, 44, 41, 895, DateTimeKind.Utc).AddTicks(8214),
+                            Title = "Closed"
                         });
                 });
 
@@ -782,6 +828,9 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                     b.Property<DateTime>("LastModifiedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("StatusId")
+                        .HasColumnType("int");
+
                     b.Property<Guid>("UserId")
                         .HasColumnType("uniqueidentifier");
 
@@ -790,6 +839,8 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                     b.HasIndex("CreatedBy");
 
                     b.HasIndex("LastModifiedBy");
+
+                    b.HasIndex("StatusId");
 
                     b.HasIndex("UserId");
 
@@ -863,6 +914,21 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                     b.HasKey("Id");
 
                     b.ToTable("GeneralProfiles", "Team");
+                });
+
+            modelBuilder.Entity("SFC.Team.Domain.Entities.Team.General.TeamInventaryProfile", b =>
+                {
+                    b.Property<long>("Id")
+                        .HasColumnType("bigint");
+
+                    b.Property<bool>("HasManiches")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(false);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("InventaryProfiles", "Team");
                 });
 
             modelBuilder.Entity("SFC.Team.Domain.Entities.Team.General.TeamLogo", b =>
@@ -1193,6 +1259,12 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
 
+                    b.HasOne("SFC.Team.Domain.Entities.Team.Data.TeamStatus", null)
+                        .WithMany()
+                        .HasForeignKey("StatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("SFC.Team.Domain.Entities.Identity.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
@@ -1227,6 +1299,17 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                     b.HasOne("SFC.Team.Domain.Entities.Team.General.Team", "Team")
                         .WithOne("GeneralProfile")
                         .HasForeignKey("SFC.Team.Domain.Entities.Team.General.TeamGeneralProfile", "Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Team");
+                });
+
+            modelBuilder.Entity("SFC.Team.Domain.Entities.Team.General.TeamInventaryProfile", b =>
+                {
+                    b.HasOne("SFC.Team.Domain.Entities.Team.General.Team", "Team")
+                        .WithOne("InventaryProfile")
+                        .HasForeignKey("SFC.Team.Domain.Entities.Team.General.TeamInventaryProfile", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -1299,7 +1382,7 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                         .IsRequired();
 
                     b.HasOne("SFC.Team.Domain.Entities.Team.General.Team", null)
-                        .WithMany()
+                        .WithMany("TeamPlayers")
                         .HasForeignKey("TeamId")
                         .OnDelete(DeleteBehavior.ClientCascade)
                         .IsRequired();
@@ -1360,11 +1443,16 @@ namespace SFC.Team.Infrastructure.Persistence.Migrations.Team
                     b.Navigation("GeneralProfile")
                         .IsRequired();
 
+                    b.Navigation("InventaryProfile")
+                        .IsRequired();
+
                     b.Navigation("Logo");
 
                     b.Navigation("Shirts");
 
                     b.Navigation("Tags");
+
+                    b.Navigation("TeamPlayers");
                 });
 #pragma warning restore 612, 618
         }

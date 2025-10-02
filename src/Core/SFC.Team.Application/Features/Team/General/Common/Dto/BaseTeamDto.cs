@@ -2,6 +2,7 @@
 
 using SFC.Team.Application.Common.Dto.Common;
 using SFC.Team.Application.Common.Mappings.Interfaces;
+using SFC.Team.Domain.Entities.Team.Player;
 
 namespace SFC.Team.Application.Features.Team.General.Common.Dto;
 public class BaseTeamDto : AuditableDto, IMapToReverse<TeamEntity>
@@ -13,6 +14,7 @@ public class BaseTeamDto : AuditableDto, IMapToReverse<TeamEntity>
         profile.CreateMap<BaseTeamDto, TeamEntity>()
                 .ForMember(p => p.GeneralProfile, d => d.MapFrom(z => z.Profile.General))
                 .ForMember(p => p.FinancialProfile, d => d.MapFrom(z => z.Profile.Financial))
+                .ForMember(p => p.InventaryProfile, d => d.MapFrom(z => z.Profile.Inventary))
                 .ForMember(p => p.Shirts, d => d.MapFrom(z => z.Profile.Inventary.Shirts))
                 .ForMember(p => p.Availability, d => d.MapFrom(z => z.Profile.General.Availability))
                 .ForMember(p => p.Logo, d => d.MapFrom(z => z.Profile.General.Logo))

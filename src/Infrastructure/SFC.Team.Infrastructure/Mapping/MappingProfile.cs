@@ -273,6 +273,7 @@ public class MappingProfile : BaseMappingProfile
         CreateMap<SFC.Team.Messages.Models.Data.DataValue, InviteStatusDto>();
 
         // team data
+        CreateMap<TeamStatus, SFC.Team.Messages.Models.Data.DataValue>();
         CreateMap<TeamPlayerStatus, SFC.Team.Messages.Models.Data.DataValue>();
 
         //team
@@ -290,6 +291,7 @@ public class MappingProfile : BaseMappingProfile
         CreateMap<TeamEntity, SFC.Team.Messages.Models.Team.General.Team>();
         CreateMap<TeamAvailability, SFC.Team.Messages.Models.Team.General.TeamAvailability>();
         CreateMap<TeamFinancialProfile, SFC.Team.Messages.Models.Team.General.TeamFinancialProfile>();
+        CreateMap<TeamInventaryProfile, SFC.Team.Messages.Models.Team.General.TeamInventaryProfile>();
         CreateMap<TeamGeneralProfile, SFC.Team.Messages.Models.Team.General.TeamGeneralProfile>();
         CreateMap<TeamLogo, SFC.Team.Messages.Models.Team.General.TeamLogo>();
         CreateMap<TeamShirt, SFC.Team.Messages.Models.Team.General.TeamShirt>();

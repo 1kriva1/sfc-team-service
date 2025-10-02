@@ -20,3 +20,4 @@ global using MetadataTypeEnum = SFC.Team.Domain.Enums.Metadata.MetadataType;
 // request
 global using RequestStatusEnum = SFC.Team.Domain.Enums.Request.RequestStatus;
 global using TeamPlayerStatusEnum = SFC.Team.Domain.Enums.Team.TeamPlayerStatus;
+global using TeamStatusEnum = SFC.Team.Domain.Enums.Team.TeamStatus;

@@ -290,6 +290,7 @@ public class TeamSeedService(
             CreatedDate = createdDate,
             LastModifiedBy = userId,
             LastModifiedDate = createdDate,
+            StatusId = TeamStatusEnum.Active,
             GeneralProfile = new TeamGeneralProfile
             {
                 Name = name,
@@ -300,6 +301,10 @@ public class TeamSeedService(
             FinancialProfile = new TeamFinancialProfile
             {
                 FreePlay = GetRandomBoolean()
+            },
+            InventaryProfile = new TeamInventaryProfile
+            {
+                HasManiches = true
             },
             UserId = userId,
             Logo = BuildTeamLogo()

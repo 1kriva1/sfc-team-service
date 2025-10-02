@@ -3,5 +3,7 @@
 namespace SFC.Team.Messages.Events.Team.Data;
 public record DataInitialized
 {
+    public IEnumerable<DataValue> TeamStatuses { get; init; } = [];
+
     public IEnumerable<DataValue> TeamPlayerStatuses { get; init; } = [];
 }

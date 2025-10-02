@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-using SFC.Team.Application.Features.Common.Models;
+using SFC.Team.Application.Features.Common.Models.Find;
 using SFC.Team.Application.Features.Common.Models.Find.Paging;
 using SFC.Team.Application.Interfaces.Persistence.Context;
 using SFC.Team.Application.Interfaces.Persistence.Repository.Common;

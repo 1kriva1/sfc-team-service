@@ -1,15 +1,41 @@
 ﻿{
   "$schema": "https://json.schemastore.org/launchsettings.json",
   "profiles": {
-    "SFC.Team": {
+    "SFC.Data": {
       "commandName": "Project",
-      "dotnetRunMessages": true,
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7566",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://+:7566;http://+:7565",
+        "ASPNETCORE_HTTPS_PORT": "7566",
+        "ConnectionStrings__Database": "Server=127.0.0.1,1433;Database=Team;User Id=sfc;Password=Test1234!;TrustServerCertificate=True;",
+        "ConnectionStrings__Hangfire": "Server=127.0.0.1,1433;Database=Hangfire;User Id=sfc;Password=Test1234!;TrustServerCertificate=True;",
+        "ConnectionStrings__RabbitMq": "rabbitmq://localhost:5672",
+        "ConnectionStrings__Redis": "localhost:6379"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "https://localhost:7566;http://localhost:7565",
+      "httpPort": 7565,
+      "useSSL": true,
+      "sslPort": 7566,
+      "nativeDebugging": true
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://+:7566;http://+:7565",
+        "ASPNETCORE_HTTPS_PORT": "7566"
+      },
+      "mycontainer": "sfc-team",
+      "DockerfileRunArguments": "--network sfc-network",
+      "httpPort": 7565,
+      "useSSL": true,
+      "sslPort": 7566,
+      "containerName": "sfc-team"
     }
   }
 }

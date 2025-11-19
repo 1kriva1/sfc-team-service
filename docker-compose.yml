@@ -1,0 +1,6 @@
+services:
+  sfc.team.api:
+    image: ${DOCKER_REGISTRY-}sfcteamapi
+    build:
+      context: .
+      dockerfile: src/API/SFC.Team.Api/Dockerfile

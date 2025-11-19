@@ -23,6 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Api", "src\API\SFC
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F6279988-F8B1-40B3-89F2-0A74150B7EC4}"
 	ProjectSection(SolutionItems) = preProject
+		.dockerignore = .dockerignore
 		.editorconfig = .editorconfig
 		.gitignore = .gitignore
 		Directory.Build.props = Directory.Build.props
@@ -69,10 +70,49 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SFC.Team.Contracts", "src\C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{CFA5A9B4-6EFD-4615-8A7F-5C5BBC1CCEE1}"
 	ProjectSection(SolutionItems) = preProject
+		tools\generate-service-certificate.sh = tools\generate-service-certificate.sh
 		tools\post-action.cmd = tools\post-action.cmd
 		tools\update-contracts.ps1 = tools\update-contracts.ps1
 		tools\update-messages.ps1 = tools\update-messages.ps1
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{AA55954E-00AB-4831-98F1-68316E0D4C8A}"
+	ProjectSection(SolutionItems) = preProject
+		scripts\mssql\create_hangfire_database.sql = scripts\mssql\create_hangfire_database.sql
+		scripts\mssql\create_sfc_login.sql = scripts\mssql\create_sfc_login.sql
+		scripts\mssql\entrypoint.mssql.sh = scripts\mssql\entrypoint.mssql.sh
+		scripts\mssql\init.sql = scripts\mssql\init.sql
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "environments", "environments", "{84326123-ABF8-429D-B07E-41B101B11A8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{E8DA10DB-D967-4D38-AE1F-1E49C5064FA5}"
+	ProjectSection(SolutionItems) = preProject
+		environments\api\api.Development.env = environments\api\api.Development.env
+		environments\api\api.Production.env = environments\api\api.Production.env
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "mssql", "mssql", "{B36169E6-3D50-42F7-A5FB-60384F265A6B}"
+	ProjectSection(SolutionItems) = preProject
+		environments\mssql\mssql.Development.env = environments\mssql\mssql.Development.env
+		environments\mssql\mssql.Production.env = environments\mssql\mssql.Production.env
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "redis", "redis", "{FA58E0A8-0698-4B77-A02B-1028B86F8B89}"
+	ProjectSection(SolutionItems) = preProject
+		environments\redis\redis.Development.env = environments\redis\redis.Development.env
+		environments\redis\redis.Production.env = environments\redis\redis.Production.env
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq", "rabbitmq", "{17087E45-AB17-4C93-977E-468643BC092D}"
+	ProjectSection(SolutionItems) = preProject
+		environments\rabbitmq\rabbitmq.Development.env = environments\rabbitmq\rabbitmq.Development.env
+		environments\rabbitmq\rabbitmq.Production.env = environments\rabbitmq\rabbitmq.Production.env
+	EndProjectSection
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -128,6 +168,10 @@ Global
 		{37822054-2D93-4C74-9468-7ACF312F307B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37822054-2D93-4C74-9468-7ACF312F307B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37822054-2D93-4C74-9468-7ACF312F307B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81DDED9D-158B-E303-5F62-77A2896D2A5A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,6 +198,13 @@ Global
 		{7A141789-E8E4-4595-BA55-867C172A07A9} = {E5917561-B757-48B8-AA63-7B12B34DFD76}
 		{37822054-2D93-4C74-9468-7ACF312F307B} = {E5917561-B757-48B8-AA63-7B12B34DFD76}
 		{CFA5A9B4-6EFD-4615-8A7F-5C5BBC1CCEE1} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
+		{AA55954E-00AB-4831-98F1-68316E0D4C8A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{84326123-ABF8-429D-B07E-41B101B11A8A} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
+		{E8DA10DB-D967-4D38-AE1F-1E49C5064FA5} = {84326123-ABF8-429D-B07E-41B101B11A8A}
+		{B36169E6-3D50-42F7-A5FB-60384F265A6B} = {84326123-ABF8-429D-B07E-41B101B11A8A}
+		{FA58E0A8-0698-4B77-A02B-1028B86F8B89} = {84326123-ABF8-429D-B07E-41B101B11A8A}
+		{17087E45-AB17-4C93-977E-468643BC092D} = {84326123-ABF8-429D-B07E-41B101B11A8A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {227C3234-815B-4923-B9E6-61FB0BBD9FA9}

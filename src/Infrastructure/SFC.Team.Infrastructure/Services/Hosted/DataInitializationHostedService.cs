@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using SFC.Team.Application.Common.Enums;
+using SFC.Team.Application.Interfaces.Metadata;
 using SFC.Team.Application.Interfaces.Team.Data;
 using SFC.Team.Application.Interfaces.Team.Data.Models;
 using SFC.Team.Infrastructure.Extensions;
@@ -38,17 +39,11 @@ public class DataInitializationHostedService(
     {
         ITeamDataService teamDataService = scope.ServiceProvider.GetRequiredService<ITeamDataService>();
 
-        GetAllTeamDataModel model = await teamDataService.GetAllTeamDataAsync()
-                                                         .ConfigureAwait(true);
+        await teamDataService.PublishDataInitializedEventAsync(cancellationToken).ConfigureAwait(false);
 
-        IMapper mapper = scope.ServiceProvider.GetRequiredService<IMapper>();
+        IMetadataService metadataService = scope.ServiceProvider.GetRequiredService<IMetadataService>();
 
-        DataInitialized @event = mapper.BuildTeamDataInitializedEvent(model);
-
-        IPublishEndpoint publisher = scope.ServiceProvider.GetRequiredService<IPublishEndpoint>();
-
-        await publisher.Publish(@event, cancellationToken)
-                       .ConfigureAwait(false);
+        await metadataService.CompleteAsync(MetadataServiceEnum.Team, MetadataDomainEnum.Data, MetadataTypeEnum.Initialization).ConfigureAwait(false);
     }
 
     private static Task SendRequireDataAsync(IServiceScope scope, CancellationToken cancellationToken)
@@ -56,10 +51,10 @@ public class DataInitializationHostedService(
         // use bus because it is Initiator (reference to mass transit documentation)
         IBus bus = scope.ServiceProvider.GetRequiredService<IBus>();
 
-        bus.Send<SFC.Team.Messages.Commands.Data.RequireData>(new SFC.Team.Messages.Commands.Data.RequireData(), cancellationToken);
+        bus.Send(new SFC.Team.Messages.Commands.Data.RequireData(), cancellationToken);
 
-        bus.Send<Messages.Commands.Invite.Data.RequireData>(new SFC.Team.Messages.Commands.Invite.Data.RequireData(), cancellationToken);
+        bus.Send(new SFC.Team.Messages.Commands.Invite.Data.RequireData(), cancellationToken);
 
-        return bus.Send<Messages.Commands.Request.Data.RequireData>(new SFC.Team.Messages.Commands.Request.Data.RequireData(), cancellationToken);
+        return bus.Send(new SFC.Team.Messages.Commands.Request.Data.RequireData(), cancellationToken);
     }
 }

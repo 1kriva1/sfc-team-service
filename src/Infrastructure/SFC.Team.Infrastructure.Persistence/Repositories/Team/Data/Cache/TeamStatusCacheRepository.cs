@@ -1,8 +1,11 @@
-﻿using SFC.Team.Application.Interfaces.Cache;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using SFC.Team.Application.Interfaces.Cache;
 using SFC.Team.Application.Interfaces.Persistence.Repository.Team.Data;
 using SFC.Team.Domain.Entities.Team.Data;
+using SFC.Team.Infrastructure.Persistence.Constants;
 
 namespace SFC.Team.Infrastructure.Persistence.Repositories.Team.Data.Cache;
-public class TeamStatusCacheRepository(TeamStatusRepository repository, ICache cache)
+public class TeamStatusCacheRepository(TeamStatusRepository repository, [FromKeyedServices(CacheInstance.Team)] ICache cache)
     : TeamDataCacheRepository<TeamStatus, TeamStatusEnum>(repository, cache), ITeamStatusRepository
 { }

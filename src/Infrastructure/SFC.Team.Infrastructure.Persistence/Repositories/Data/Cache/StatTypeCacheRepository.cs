@@ -1,9 +1,12 @@
-﻿using SFC.Team.Application.Interfaces.Cache;
+﻿using Microsoft.Extensions.DependencyInjection;
+
+using SFC.Team.Application.Interfaces.Cache;
 using SFC.Team.Application.Interfaces.Persistence.Repository.Data;
 using SFC.Team.Domain.Entities.Data;
+using SFC.Team.Infrastructure.Persistence.Constants;
 
 namespace SFC.Team.Infrastructure.Persistence.Repositories.Data.Cache;
-public class StatTypeCacheRepository(StatTypeRepository repository, ICache cache)
+public class StatTypeCacheRepository(StatTypeRepository repository, [FromKeyedServices(CacheInstance.Data)] ICache cache)
     : DataCacheRepository<StatType, StatTypeEnum>(repository, cache), IStatTypeRepository
 {
 #pragma warning disable CA1859 // Use concrete types when possible for improved performance

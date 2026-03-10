@@ -10,4 +10,6 @@ public interface ITeamDataService
     Task<GetRequestDataModel> GetRequestDataAsync();
 
     Task<GetSchemeDataModel> GetSchemeDataAsync();
+
+    Task PublishDataInitializedEventAsync(CancellationToken cancellationToken);
 }

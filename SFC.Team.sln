@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.0.31903.59
+# Visual Studio Version 18
+VisualStudioVersion = 18.2.11415.280
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{077507A8-B04C-4525-AD29-E0CF2A768433}"
 EndProject
@@ -114,6 +114,29 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "rabbitmq", "rabbitmq", "{17
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81DDED9D-158B-E303-5F62-77A2896D2A5A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "helm", "helm", "{2FDAF260-960B-412F-893F-59EF74A8B7CD}"
+	ProjectSection(SolutionItems) = preProject
+		helm\.helmignore = helm\.helmignore
+		helm\Chart.yaml = helm\Chart.yaml
+		helm\values.yaml = helm\values.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "templates", "templates", "{7B096810-F8F5-493A-A576-CB46DBF58660}"
+	ProjectSection(SolutionItems) = preProject
+		helm\templates\cluster-service.yaml = helm\templates\cluster-service.yaml
+		helm\templates\config-map.yaml = helm\templates\config-map.yaml
+		helm\templates\deployment.yaml = helm\templates\deployment.yaml
+		helm\templates\ingress-secret.yaml = helm\templates\ingress-secret.yaml
+		helm\templates\ingress-tls-secret.yaml = helm\templates\ingress-tls-secret.yaml
+		helm\templates\ingress.yaml = helm\templates\ingress.yaml
+		helm\templates\network-policy.yaml = helm\templates\network-policy.yaml
+		helm\templates\pod-disruption-budget.yaml = helm\templates\pod-disruption-budget.yaml
+		helm\templates\role-binding.yaml = helm\templates\role-binding.yaml
+		helm\templates\role.yaml = helm\templates\role.yaml
+		helm\templates\secret.yaml = helm\templates\secret.yaml
+		helm\templates\service-account.yaml = helm\templates\service-account.yaml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -205,6 +228,8 @@ Global
 		{B36169E6-3D50-42F7-A5FB-60384F265A6B} = {84326123-ABF8-429D-B07E-41B101B11A8A}
 		{FA58E0A8-0698-4B77-A02B-1028B86F8B89} = {84326123-ABF8-429D-B07E-41B101B11A8A}
 		{17087E45-AB17-4C93-977E-468643BC092D} = {84326123-ABF8-429D-B07E-41B101B11A8A}
+		{2FDAF260-960B-412F-893F-59EF74A8B7CD} = {F6279988-F8B1-40B3-89F2-0A74150B7EC4}
+		{7B096810-F8F5-493A-A576-CB46DBF58660} = {2FDAF260-960B-412F-893F-59EF74A8B7CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {227C3234-815B-4923-B9E6-61FB0BBD9FA9}

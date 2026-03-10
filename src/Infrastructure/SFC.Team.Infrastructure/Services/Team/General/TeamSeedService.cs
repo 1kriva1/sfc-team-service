@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System;
+
+using AutoMapper;
 
 using MassTransit;
 
@@ -290,7 +292,7 @@ public class TeamSeedService(
             CreatedDate = createdDate,
             LastModifiedBy = userId,
             LastModifiedDate = createdDate,
-            StatusId = TeamStatusEnum.Active,
+            StatusId = GetRandomEnumValue<TeamStatusEnum>(),
             GeneralProfile = new TeamGeneralProfile
             {
                 Name = name,
@@ -408,6 +410,13 @@ public class TeamSeedService(
     {
         return Random.Next(0, 2) == 1;
     }
+    private static T GetRandomEnumValue<T>() where T : Enum
+    {
+        var values = Enum.GetValues(typeof(T));
+        int index = Random.Next(values.Length);
+        return (T)values.GetValue(index)!;
+    }
+
 
     #endregion Private
 #pragma warning restore CA5394 // Do not use insecure randomness

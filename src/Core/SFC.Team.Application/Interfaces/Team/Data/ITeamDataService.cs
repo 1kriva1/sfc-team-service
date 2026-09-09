@@ -11,5 +11,7 @@ public interface ITeamDataService
 
     Task<GetSchemeDataModel> GetSchemeDataAsync();
 
+    Task<GetGameDataModel> GetGameDataAsync();
+
     Task PublishDataInitializedEventAsync(CancellationToken cancellationToken);
 }

@@ -34,7 +34,7 @@ public static class InfrastructureRegistration
     {
         ArgumentNullException.ThrowIfNull(builder);
 
-        builder.Services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        builder.Services.AddAutoMapper(config => { }, Assembly.GetExecutingAssembly());
 
         builder.Services.AddHangfire(builder.Configuration);
 

@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using SFC.Team.Application.Common.Constants;
 using SFC.Team.Domain.Entities.Team.General;
-using SFC.Team.Infrastructure.Persistence.Constants;
 
 namespace SFC.Team.Infrastructure.Persistence.Configurations.Team.General;
 public class TeamGeneralProfileConfiguration : IEntityTypeConfiguration<TeamGeneralProfile>

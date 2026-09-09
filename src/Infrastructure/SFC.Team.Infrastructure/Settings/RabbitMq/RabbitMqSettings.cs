@@ -40,6 +40,8 @@ public class RabbitMqExchangesSettings
     public ExchangeSetting<RequestExchangeValue> Request { get; set; } = default!;
 
     public ExchangeSetting<SchemeExchangeValue> Scheme { get; set; } = default!;
+
+    public ExchangeSetting<GameExchangeValue> Game { get; set; } = default!;
 }
 
 public class ExchangeSetting<T>

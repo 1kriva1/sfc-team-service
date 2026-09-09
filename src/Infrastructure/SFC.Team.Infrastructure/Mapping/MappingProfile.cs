@@ -92,6 +92,13 @@ public class MappingProfile : BaseMappingProfile
 
         #endregion Scheme
 
+        #region Game
+
+        // messages
+        CreateMapGameMessages();
+
+        #endregion Game
+
         #region Team
 
         // messages
@@ -251,6 +258,18 @@ public class MappingProfile : BaseMappingProfile
     }
 
     #endregion Scheme
+
+    #region Game
+
+    private void CreateMapGameMessages()
+    {
+        // data
+        // events
+        // models
+        CreateMap<TeamPlayerStatus, SFC.Game.Messages.Models.Data.DataValue>();
+    }
+
+    #endregion Game
 
     #region Team
 

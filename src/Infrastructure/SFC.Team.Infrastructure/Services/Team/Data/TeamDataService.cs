@@ -2,7 +2,6 @@
 
 using MassTransit;
 
-using MediatR;
 
 using SFC.Team.Application.Interfaces.Persistence.Repository.Team.Data;
 using SFC.Team.Application.Interfaces.Team.Data;
@@ -48,6 +47,14 @@ public class TeamDataService(
     }
 
     public async Task<GetSchemeDataModel> GetSchemeDataAsync()
+    {
+        return new()
+        {
+            TeamPlayerStatuses = await _teamPlayerStatusesRepository.ListAllAsync().ConfigureAwait(false)
+        };
+    }
+
+    public async Task<GetGameDataModel> GetGameDataAsync()
     {
         return new()
         {

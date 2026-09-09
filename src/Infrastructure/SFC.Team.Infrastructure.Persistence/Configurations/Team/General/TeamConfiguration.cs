@@ -2,10 +2,8 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 using SFC.Team.Domain.Entities.Identity;
-using SFC.Team.Domain.Entities.Team;
 using SFC.Team.Domain.Entities.Team.Data;
 using SFC.Team.Domain.Entities.Team.General;
-using SFC.Team.Domain.Entities.Team.Player;
 using SFC.Team.Infrastructure.Persistence.Configurations.Base;
 using SFC.Team.Infrastructure.Persistence.Constants;
 

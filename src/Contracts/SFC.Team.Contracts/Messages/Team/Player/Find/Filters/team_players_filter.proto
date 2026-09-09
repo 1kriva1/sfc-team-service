@@ -8,5 +8,6 @@ option csharp_namespace = "SFC.Team.Contracts.Messages.Team.Player.Find.Filters"
 
 message TeamPlayersFilter
 {
-    TeamPlayerFilter team_player = 1;
+    int64 team_id = 1;
+    TeamPlayerFilter team_player = 2;
 }

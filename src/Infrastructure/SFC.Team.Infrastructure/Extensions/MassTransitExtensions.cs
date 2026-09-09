@@ -66,7 +66,7 @@ public static class MassTransitExtensions
     {
         EndpointConvention.Map<SFC.Team.Messages.Commands.Data.RequireData>(exchangesSettings.Team.Value.Data.Dependent.Data.RequireInitialize.GetExchangeEndpointUri());
 
-        EndpointConvention.Map<Team.Messages.Commands.Invite.Data.RequireData>(exchangesSettings.Team.Value.Data.Dependent.Invite.RequireInitialize.GetExchangeEndpointUri());
+        EndpointConvention.Map<SFC.Team.Messages.Commands.Invite.Data.RequireData>(exchangesSettings.Team.Value.Data.Dependent.Invite.RequireInitialize.GetExchangeEndpointUri());
 
         EndpointConvention.Map<Team.Messages.Commands.Request.Data.RequireData>(exchangesSettings.Team.Value.Data.Dependent.Request.RequireInitialize.GetExchangeEndpointUri());
 
@@ -75,6 +75,8 @@ public static class MassTransitExtensions
         EndpointConvention.Map<SFC.Request.Messages.Commands.Team.Data.InitializeData>(exchangesSettings.Request.Value.Data.Dependent.Team.Initialize.GetExchangeEndpointUri());
 
         EndpointConvention.Map<SFC.Scheme.Messages.Commands.Team.Data.InitializeData>(exchangesSettings.Scheme.Value.Data.Dependent.Team.Initialize.GetExchangeEndpointUri());
+
+        EndpointConvention.Map<SFC.Game.Messages.Commands.Team.Data.InitializeData>(exchangesSettings.Game.Value.Data.Dependent.Team.Initialize.GetExchangeEndpointUri());
 
         if (environment.IsDevelopment())
         {

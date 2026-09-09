@@ -14,44 +14,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Enums\sorting_direction.proto" />
-    <None Remove="Headers\auditable_header.proto" />
-    <None Remove="Headers\pagination_header.proto" />
-    <None Remove="Messages\Team\Data\GetAll\get_all_team_data_request.proto" />
-    <None Remove="Messages\Team\Data\GetAll\get_all_team_data_response.proto" />
-    <None Remove="Messages\Team\General\Find\Filters\teams_availability_limit.proto" />
-    <None Remove="Messages\Team\General\Find\Filters\teams_filter.proto" />
-    <None Remove="Messages\Team\General\Find\Filters\teams_financial_profile_filter.proto" />
-    <None Remove="Messages\Team\General\Find\Filters\teams_general_profile_filter.proto" />
-    <None Remove="Messages\Team\General\Find\Filters\teams_inventary_profile_filter.proto" />
-    <None Remove="Messages\Team\General\Find\Filters\teams_profile_filter.proto" />
-    <None Remove="Messages\Team\General\Find\get_teams_request.proto" />
-    <None Remove="Messages\Team\General\Find\get_teams_response.proto" />
-    <None Remove="Messages\Team\General\Get\get_team_request.proto" />
-    <None Remove="Messages\Team\General\Get\get_team_response.proto" />
-    <None Remove="Messages\Team\Player\Find\Filters\team_players_filter.proto" />
-    <None Remove="Messages\Team\Player\Find\Filters\team_player_filter.proto" />
-    <None Remove="Messages\Team\Player\Find\get_team_players_request.proto" />
-    <None Remove="Messages\Team\Player\Find\get_team_players_response.proto" />
-    <None Remove="Messages\Team\Player\Get\get_team_player_request.proto" />
-    <None Remove="Messages\Team\Player\Get\get_team_player_response.proto" />
-    <None Remove="Models\Common\pagination.proto" />
-    <None Remove="Models\Common\range_limit.proto" />
-    <None Remove="Models\Common\sorting.proto" />
-    <None Remove="Models\Team\Data\data_value.proto" />
-    <None Remove="Models\Team\Player\team_player.proto" />
-    <None Remove="Models\Team\team.proto" />
-    <None Remove="Models\Team\team_availability.proto" />
-    <None Remove="Models\Team\team_financial_profile.proto" />
-    <None Remove="Models\Team\team_general_profile.proto" />
-    <None Remove="Models\Team\team_inventary_profile.proto" />
-    <None Remove="Models\Team\team_profile.proto" />
-    <None Remove="Services\team_data_service.proto" />
-    <None Remove="Services\team_player.service.proto" />
-    <None Remove="Services\team_service.proto" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.29.3" />
     <PackageReference Include="Grpc.Core.Api" Version="2.67.0" />
     <PackageReference Include="Grpc.Tools" Version="2.69.0">

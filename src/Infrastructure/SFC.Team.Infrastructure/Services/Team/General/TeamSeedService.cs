@@ -1,6 +1,4 @@
-﻿using System;
-
-using AutoMapper;
+﻿using AutoMapper;
 
 using MassTransit;
 
@@ -410,6 +408,7 @@ public class TeamSeedService(
     {
         return Random.Next(0, 2) == 1;
     }
+
     private static T GetRandomEnumValue<T>() where T : Enum
     {
         var values = Enum.GetValues(typeof(T));

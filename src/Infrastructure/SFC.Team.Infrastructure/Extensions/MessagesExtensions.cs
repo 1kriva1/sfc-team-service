@@ -4,6 +4,8 @@ using SFC.Team.Application.Interfaces.Team.Data.Models;
 using SFC.Team.Messages.Commands.Common;
 using SFC.Team.Messages.Events.Team.Data;
 
+using GameDataValue = SFC.Game.Messages.Models.Data.DataValue;
+using GameInitializeData = SFC.Game.Messages.Commands.Team.Data.InitializeData;
 using InviteDataValue = SFC.Invite.Messages.Models.Data.DataValue;
 using InviteInitializeData = SFC.Invite.Messages.Commands.Team.Data.InitializeData;
 using RequestDataValue = SFC.Request.Messages.Models.Data.DataValue;
@@ -40,6 +42,16 @@ public static class MessagesExtensions
         SchemeInitializeData message = new()
         {
             TeamPlayerStatuses = mapper.Map<IEnumerable<SchemeDataValue>>(model.TeamPlayerStatuses)
+        };
+
+        return message;
+    }
+
+    public static GameInitializeData BuildInitializeDataCommand(this IMapper mapper, GetGameDataModel model)
+    {
+        GameInitializeData message = new()
+        {
+            TeamPlayerStatuses = mapper.Map<IEnumerable<GameDataValue>>(model.TeamPlayerStatuses)
         };
 
         return message;

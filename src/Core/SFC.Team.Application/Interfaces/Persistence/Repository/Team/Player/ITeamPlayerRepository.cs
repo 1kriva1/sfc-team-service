@@ -1,9 +1,5 @@
-﻿using System.Collections.Generic;
-
-using SFC.Team.Application.Interfaces.Persistence.Context;
+﻿using SFC.Team.Application.Interfaces.Persistence.Context;
 using SFC.Team.Application.Interfaces.Persistence.Repository.Common;
-using SFC.Team.Domain.Common.Interfaces;
-using SFC.Team.Domain.Entities.Team;
 using SFC.Team.Domain.Entities.Team.Player;
 
 namespace SFC.Team.Application.Interfaces.Persistence.Repository.Team.Player;

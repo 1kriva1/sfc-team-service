@@ -7,8 +7,6 @@ public class GetTeamPlayersQuery : BasePaginationRequest<GetTeamPlayersViewModel
 {
     public override RequestId RequestId { get => RequestId.GetTeamPlayers; }
 
-    public long TeamId { get; set; }
-
     public GetTeamPlayersQuery SetTeamId(long teamId)
     {
         Filter ??= new GetTeamPlayersFilterDto();

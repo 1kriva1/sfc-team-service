@@ -5,7 +5,6 @@ using MassTransit;
 using MediatR;
 
 using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.Logging;
 
 using SFC.Invite.Messages.Events.Invite.Team.Player;
 using SFC.Team.Application.Features.Team.Player.Commands.Create;

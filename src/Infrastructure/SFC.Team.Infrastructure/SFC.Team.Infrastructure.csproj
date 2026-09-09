@@ -16,11 +16,12 @@
     <PackageReference Include="SFC.Data.Messages" Version="0.0.8" />
     <PackageReference Include="SFC.Identity.Messages" Version="0.0.6" />
     <PackageReference Include="SFC.Identity.Contracts" Version="0.0.3" />
-    <PackageReference Include="SFC.Invite.Messages" Version="0.0.9" />
+    <PackageReference Include="SFC.Invite.Messages" Version="0.0.10" />
     <PackageReference Include="SFC.Player.Contracts" Version="0.0.3" />
     <PackageReference Include="SFC.Player.Messages" Version="0.0.9" />
     <PackageReference Include="SFC.Request.Messages" Version="0.0.3" />
     <PackageReference Include="SFC.Scheme.Messages" Version="0.0.3" />
+    <PackageReference Include="SFC.Game.Messages" Version="0.0.1" />
   </ItemGroup>
 
   <ItemGroup>

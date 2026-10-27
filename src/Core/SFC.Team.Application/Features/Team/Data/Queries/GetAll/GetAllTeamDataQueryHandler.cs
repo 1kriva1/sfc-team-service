@@ -21,8 +21,8 @@ public class GetAllTeamDataQueryHandler(IMapper mapper, ITeamDataService teamDat
 
         return new GetAllTeamDataViewModel
         {
-            TeamStatuses = _mapper.Map<IEnumerable<DataValueDto>>(model.TeamStatuses.Localize()),
-            TeamPlayerStatuses = _mapper.Map<IEnumerable<DataValueDto>>(model.TeamPlayerStatuses.Localize())
+            TeamStatuses = _mapper.Map<IEnumerable<DataValueDto>>(model.TeamStatuses).Localize(),
+            TeamPlayerStatuses = _mapper.Map<IEnumerable<DataValueDto>>(model.TeamPlayerStatuses).Localize()
         };
     }
 }
